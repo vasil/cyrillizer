@@ -2,7 +2,7 @@
 module Cyrillizer
 	module Converter
 
-    Latin    = "AaBbVvGgDdEeZzJiKjKkLlMmNnOoPpRrSsTtUuFfHhCc"
+    Latin    = "AaBbVvGgDdEeZzIiJjKkLlMmNnOoPpRrSsTtUuFfHhCc"
     Cyrillic = "АаБбВвГгДдЕеЗзИиЈјКкЛлМмНнОоПпРрСсТтУуФфХхЦц"
 
     Latin_a    = %w(DZH Dzh dzh GJ Gj gj ZH Zh zh DZ Dz dz LJ Lj lj NJ Nj nj KJ Kj kj CH Ch ch SH Sh sh)

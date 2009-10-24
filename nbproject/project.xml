@@ -3,12 +3,12 @@
     <type>org.netbeans.modules.ruby.rubyproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/ruby-project/1">
-            <name>Cyrillizer</name>
+            <name>cyrillizer</name>
             <source-roots>
-                <root id="src.dir"/>
+                <root id="src.dir" name="lib"/>
             </source-roots>
             <test-roots>
-                <root id="spec.src.dir"/>
+                <root id="test.spec.dir"/>
             </test-roots>
         </data>
     </configuration>
