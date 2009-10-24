@@ -1,26 +1,45 @@
 require 'rubygems'
-gem 'hoe', '>= 2.1.0'
-require 'hoe'
-require 'fileutils'
-require './lib/cyrillizer'
+require 'rake'
+require 'rake/clean'
+require 'rake/gempackagetask'
+require 'rake/rdoctask'
+require 'rake/testtask'
+require 'spec/rake/spectask'
 
-Hoe.plugin :newgem
-# Hoe.plugin :website
-Hoe.plugin :cucumberfeatures
-
-# Generate all the Rake tasks
-# Run 'rake -T' to see list of generated tasks (from gem root directory)
-$hoe = Hoe.spec 'cyrillizer' do
-  self.developer 'Dalibor Nasevic', 'dalibor.nasevic@gmail.com'
-  self.post_install_message = 'PostInstall.txt' # TODO remove if post-install message not required
-  self.rubyforge_name       = self.name # TODO this is default value
-  # self.extra_deps         = [['activesupport','>= 2.0.2']]
-
+spec = Gem::Specification.new do |s|
+  s.name = 'Cyrillizer'
+  s.version = '0.1.0'
+  s.has_rdoc = true
+  s.extra_rdoc_files = ['README.rdoc']
+  s.summary = 'Character conversion from latin alphabet to Macedonian cyrillic alphabet'
+  s.description = s.summary
+  s.author = 'Vasil Taneski'
+  s.email = 'vasil@taneski.com'
+  # s.executables = ['']
+  s.files = %w(README.rdoc Rakefile) + Dir.glob("{bin,lib,spec}/**/*")
+  s.require_path = "lib"
+  s.bindir = "bin"
 end
 
-require 'newgem/tasks'
-Dir['tasks/**/*.rake'].each { |t| load t }
+Rake::GemPackageTask.new(spec) do |p|
+  p.gem_spec = spec
+  p.need_tar = true
+  p.need_zip = true
+end
 
-# TODO - want other tests/tasks run by default? Add them to the list
-# remove_task :default
-# task :default => [:spec, :features]
+Rake::RDocTask.new do |rdoc|
+  files =['README', 'LICENSE', 'lib/**/*.rb']
+  rdoc.rdoc_files.add(files)
+  rdoc.main = "README.rdoc"
+  rdoc.title = "Cyrillizer Docs"
+  rdoc.rdoc_dir = 'doc/rdoc'
+  rdoc.options << '--line-numbers'
+end
+
+Rake::TestTask.new do |t|
+  t.test_files = FileList['test/**/*.rb']
+end
+
+Spec::Rake::SpecTask.new do |t|
+  t.spec_files = FileList['spec/**/*.rb']
+end

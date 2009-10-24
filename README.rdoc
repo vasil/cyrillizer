@@ -1,29 +1,21 @@
 = cyrillizer
 
-* http://github.com/dalibor/cyrillizer
+* http://github.com/vasil/cyrillizer
 
 == DESCRIPTION:
 
 Character conversion from latin alphabet to Macedonian cyrillic alphabet
 
-== FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
-
 == SYNOPSIS:
 
-$KCODE = 'UTF8' # proper display of UTF8 characters
-require 'rubygems'
-require 'cyrillizer'
-puts 'Konvertiraj go ova na kirilica'.to_cyr
-
-== REQUIREMENTS:
-
-* FIX (list of requirements)
+  require 'rubygems'
+  require 'cyrillizer'
+  puts 'Konvertiraj go ova na kirilica'.to_cyr
 
 == INSTALL:
 
-sudo gem install cyrillizer
+  $ gem sources -a http://gems.github.com (you only have to do this once)
+  $ sudo gem install vasil-cyrillizer
 
 == LICENSE:
 

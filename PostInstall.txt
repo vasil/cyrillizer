@@ -1,3 +1,0 @@
-
-For more information on cyrillizer, see http://cyrillizer.rubyforge.org
-
